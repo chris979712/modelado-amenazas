@@ -394,6 +394,19 @@
                   "new": false,
                   "number": 14,
                   "score": "8"
+                },
+                {
+                  "id": "0594a73b-0cf9-487e-a355-1043877a515c",
+                  "title": "Escalar privilegios",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Un usuario logra acceder a páginas o usuarios de alto privilegio, debido a la configuración de la navegabilidad en el sitio web",
+                  "mitigation": "Manejar la visibilidad de interfaz de acuerdo al usuario correspondiente\nAdministrar de forma correcta los privilegios y acciones que los usuarios pueden hacer en el sistema\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "2"
                 }
               ],
               "threatFrequency": {
@@ -402,7 +415,7 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 1,
-                "elevationOfPrivilege": 0
+                "elevationOfPrivilege": 1
               }
             }
           },
@@ -528,13 +541,6 @@
               "storesCredentials": false,
               "storesInventory": false,
               "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -551,11 +557,13 @@
                 "text": "Web Application Config"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -652,13 +660,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": true,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "bcb75745-db94-48f3-905b-9d69bc464a04",
+                  "title": "Exposición de credenciales",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Information disclosure",
+                  "description": "Los archivos de configuración, claves y variables de entorno se encuentran en texto plano.",
+                  "mitigation": "Cifrar los secretos y archivos de configuración\nRestringir los permisos de lectura",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": "3"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -675,11 +703,13 @@
                 "text": "Base de datos"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -776,13 +806,46 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": true,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": true,
               "storesInventory": true,
-              "threats": []
+              "threats": [
+                {
+                  "id": "27eafe00-e33c-4fc2-8dd1-c4dd6785c9ec",
+                  "title": "Ransomware",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Un ransomware cifra los datos de las tablas en la base de datos.",
+                  "mitigation": "Borrar la base de datos\nUtilizar un respaldo de base de datos",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "4"
+                },
+                {
+                  "id": "bdce462e-6461-495d-9f28-2eab46b67444",
+                  "title": "Fallo en el registro de logs",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Repudiation",
+                  "description": "Un usuario malicioso logra atacar la base de datos sin dejar huella de quién, cómo, cuándo y donde fue el siniestro.",
+                  "mitigation": "Aceptar mi error FF\nUtilizar un respaldo \nAdministrar los privilegios y utilizar logs para detectar cualquier acción en la base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": "5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             }
           },
           {
@@ -1098,7 +1161,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1119,12 +1183,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "ef1c9aa1-33df-48bf-9ff9-a4cfe233ef54",
+                  "title": "Inyección ORM",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Un usuario mal intencionado realiza inyección ORM para obtener o manipular los datos de la base de datos.",
+                  "mitigation": "Parametrizar los datos en la funciones del ORM\nSanitizar entradas desde la interfaz así como middlewares",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Resultados\nWeb App Query"
@@ -1144,7 +1227,7 @@
                 "y": 310
               },
               {
-                "x": 780,
+                "x": 750,
                 "y": 310
               }
             ]
@@ -1153,7 +1236,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1174,12 +1258,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "a899d5c6-e052-44ce-a09f-e60244410c9e",
+                  "title": "Realización de consultas pesadas",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Un usuario ejecuta consultas sql, donde a través de la inyección sql logra ingresar filtros de búsqueda para realizar escaneos completos de tabla y retrasar el rendimiento de la base de datos.",
+                  "mitigation": "Implementar el uso de búsquedas indexadas para mejorar el rendimiento de consultas.\nUtilizar procedimientos almacenados para ejecutar las vistas de la base de datos.\nSanitizar las entradas del usuario.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "3"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "Queries"
@@ -1194,6 +1297,10 @@
               "port": "dfef883b-e44f-4aaa-b3e9-018974aab58d"
             },
             "vertices": [
+              {
+                "x": 720,
+                "y": 370
+              },
               {
                 "x": 760,
                 "y": 390
@@ -2662,6 +2769,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 18
+    "threatTop": 24
   }
 }
