@@ -8,8 +8,19 @@
   },
   "detail": {
     "contributors": [],
-    "diagrams": [],
-    "diagramTop": 0,
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "DFD Sistema de la biblioteca universitaria",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": [],
+        "description": "Diagrama de flujo de datos para el sistema bibliotecario de la universidad"
+      }
+    ],
+    "diagramTop": 1,
     "reviewer": "Guillermo Humberto Vera Amaro",
     "threatTop": 0
   }
