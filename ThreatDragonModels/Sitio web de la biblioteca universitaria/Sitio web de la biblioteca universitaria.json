@@ -136,8 +136,8 @@
           },
           {
             "position": {
-              "x": 698.75,
-              "y": 0
+              "x": 690,
+              "y": 20
             },
             "size": {
               "width": 112.5,
@@ -265,8 +265,8 @@
                 "text": "Sitio web \nbibliotecario"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -363,12 +363,47 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": true,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "772b6b3e-377d-4de1-87d7-4ecab72473e7",
+                  "title": "Ataque DDoS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "El sitio web sufre de una saturación de tráfico masivo de solicitudes.",
+                  "mitigation": "Utilizar un balanceador de carga para distribuir el tráfico de solicitudes.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "5"
+                },
+                {
+                  "id": "c726e90b-cf75-4342-a379-697ab5a7a4a8",
+                  "title": "DNS Hijacking",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Las solicitudes realizadas al servidor son redireccionadas a un sitio web fraudulento para poder hacer phishing.",
+                  "mitigation": "Utilizar un proveedor DNS que sea confiable\nMonitorear los cambios de registros en DNS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -747,7 +782,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -768,12 +804,44 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "b13faa12-7cad-4531-8e76-c220155c7fdb",
+                  "title": "Exposición de errores",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "El sistema provee mensajes de error explícitos, dando a conocer el origen y el por qué de las fallas del sistema.",
+                  "mitigation": "Manejar errores de manera segura y con mensajes genéricos",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "2"
+                },
+                {
+                  "id": "baac8e73-e87d-43d6-9444-ab54c5f14910",
+                  "title": "Man in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un usuario malicioso es capaz de poder interceptar e interpretar las respuestas HTTP del servidor",
+                  "mitigation": "Utilizar cifrado de extremo a extremo\nUtilizar el protocolo HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 3,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "web response"
@@ -904,7 +972,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -925,12 +994,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "8adb796e-4375-4d1a-bb7b-3da5d003e6db",
+                  "title": "Buffer overflow",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Denial of service",
+                  "description": "Un usuario malintencionado intenta sobrecargar la memoria para provocar que se caiga el sistema.",
+                  "mitigation": "Evitar la ejecución de código en áreas de la memoria\nValidar la longitud de entrada de los datos ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "2"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "web request"
@@ -946,8 +1034,16 @@
             },
             "vertices": [
               {
+                "x": 520,
+                "y": 120
+              },
+              {
                 "x": 530,
                 "y": 130
+              },
+              {
+                "x": 590,
+                "y": 170
               },
               {
                 "x": 625,
@@ -1196,7 +1292,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1217,12 +1314,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "b8df414f-4918-48df-88d7-35e4441a6197",
+                  "title": "Robo de archivos de configuración",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Un usuario malintencionado roba los archivos de configuración del sistema donde se encuentran credenciales de APIs y variables de entorno.",
+                  "mitigation": "Cifrar los datos de los archivos de configuración\nRestringir el acceso a los archivos de configuración",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "3"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Lee web \napp config"
@@ -2539,6 +2655,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 12
+    "threatTop": 18
   }
 }
