@@ -3,7 +3,7 @@
   "summary": {
     "title": "Sitio web de la biblioteca universitaria",
     "owner": "Christopher Vasquez Zapata",
-    "description": "",
+    "description": "El sitio web de la biblioteca universitaria es la primera implementación de un sitio web para brindar servicios en línea a los bibliotecarios y usuarios de la biblioteca (estudiantes y personal universitario). Como es la primera implementación del sitio web, la funcionalidad será limitada a tres usuarios de la aplicación:\n1.- Estudiantes\n2.- Personal\n3.- Bibliotecarios",
     "id": 0
   },
   "detail": {
