@@ -1272,8 +1272,8 @@
                 "text": "Controlador \nweb"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1370,12 +1370,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "cf3083b1-cd39-401a-8205-e5490b9b253e",
+                  "title": "Fingerprinting",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Se identifican datos del navegador de los usuarios, así como su sistema operativo y configuraciones del dispositvo.",
+                  "mitigation": "Uso de navegadores que bloqueen rastreadores\nUso de extensiones de privacidad\nLimitar el uso de scripts de terceros, así como revisar las librerías de terceros",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1505,11 +1527,24 @@
                   "new": false,
                   "number": 2,
                   "score": "2"
+                },
+                {
+                  "id": "81d08ac2-f926-45d4-aeaf-aa1460d58e6c",
+                  "title": "Intento de obtención de contraseñas",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Un usuario malicioso, mediante ataques de ingeniería social intenta obtener las credenciales de un usuario registrado en el sistema.",
+                  "mitigation": "Uso de autenticación de doble factor\nUso de biométricos para el ingreso al sistema",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "5"
                 }
               ],
               "threatFrequency": {
                 "spoofing": 1,
-                "repudiation": 0
+                "repudiation": 2
               }
             }
           },
@@ -1769,14 +1804,47 @@
                   "new": false,
                   "number": 3,
                   "score": "7"
+                },
+                {
+                  "id": "db51a38c-d055-4e05-974c-5ace66eadd0e",
+                  "title": "Ransomware",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Repudiation",
+                  "description": "El servidor de base de datos es atacado por un ransomware el cual bloquea el acceso a esta misma.",
+                  "mitigation": "Eliminar la base de datos\nUtilizar un respaldo más reciente\nUso correctos sobre el mínimo privilegio",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "8"
+                },
+                {
+                  "id": "8f4deb85-3d97-44cb-ae69-414f36edbe18",
+                  "title": "Escala de privilegios",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Un usuario es capaz de acceder con permisos de administrador desde un usuario con privilegios mal administrados",
+                  "mitigation": "Utilizar correctamente los privilegios minimos de los usuarios\nLlevar un control sobre los usuarios que realizan cambios o acceden a la base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "8"
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "repudiation": 0,
-                "informationDisclosure": 0,
+                "repudiation": 2,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1915,13 +1983,26 @@
                   "new": false,
                   "number": 4,
                   "score": "6"
+                },
+                {
+                  "id": "c229412d-71e3-4e64-b3f4-5f4850eafab0",
+                  "title": "Ransonware",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Denial of service",
+                  "description": "El disco de las páginas web es atacado por un ransomware, el cual evita que los archivos puedan ser accesibles.",
+                  "mitigation": "Resetear los datos en discos\nUtilizar un respaldo sobre la información en disco\nUtilizar correctamente el mínimo de privilegios",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "8"
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 0
+                "denialOfService": 1
               }
             }
           },
@@ -2160,7 +2241,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2176,20 +2258,39 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "UsuarioAutenticadoResultado",
+              "name": "UsuarioAutenticado()",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "5b507f8a-0761-415a-a727-b3eca246d9d2",
+                  "title": "Cross Site Scripting",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Un usuario malintencionado inyecta código en la lógica de la aplicación web a través de los parámetros de las solicitudes http, modificando el funcionamiento del método de autenticación.",
+                  "mitigation": "Sanitizar entradas desde la interfaz grafica \nValidar entradas mediante el uso de middlewares",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
-              "UsuarioAutenticadoResultado"
+              "UsuarioAutenticado()"
             ],
             "id": "97a136fa-ed9d-4cf0-adbf-99a64bcad816",
             "source": {
@@ -2231,7 +2332,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "UsuarioAutenticado()",
+              "name": "UsuarioAutenticadoResultado",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -2244,7 +2345,7 @@
               "threats": []
             },
             "labels": [
-              "UsuarioAutenticado()"
+              "UsuarioAutenticadoResultado"
             ],
             "id": "6ffaf37f-f121-4368-9158-7b5f36114fdc",
             "source": {
@@ -2325,7 +2426,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2346,12 +2448,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "42f1dac9-70cf-4c47-a8ae-302883f2596b",
+                  "title": "Ataques de fuerza bruta para ingresar al sistema",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Un usuario no identificado intenta acceder al sistema a través de varios intentos de usuario y contraseña para poder acceder al sistema.",
+                  "mitigation": "Rastrear el equipo que intenta acceder al sistema\nLimitar el uso de intentos tras ingresar las credenciales incorrectas\nBloquear la cuenta en caso de querer acceder a ella y acceder en la autenticación tras cierto número de intentos",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "UsuarioAutenticado SQL Query"
@@ -2371,7 +2492,7 @@
                 "y": 230
               },
               {
-                "x": 1190,
+                "x": 1160,
                 "y": 230
               }
             ]
@@ -2418,6 +2539,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 5
+    "threatTop": 12
   }
 }
