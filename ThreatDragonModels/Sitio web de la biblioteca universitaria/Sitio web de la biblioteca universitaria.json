@@ -1279,6 +1279,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -1362,7 +1363,6 @@
               ]
             },
             "id": "52a09473-e2c5-4145-9749-8cca873e2777",
-            "zIndex": 1,
             "data": {
               "type": "tm.Process",
               "name": "Controlador \nweb",
@@ -1392,13 +1392,14 @@
                 "text": "Usuarios"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -1482,7 +1483,6 @@
               ]
             },
             "id": "0d5749b1-479f-4ee0-8587-458533ddc036",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "Usuarios",
@@ -1490,9 +1490,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "526488ba-89bb-43b2-8f3f-8baaef309b47",
+                  "title": "Suplantación de identidad",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "Un usuario malicioso ingresa y utiliza las credenciales de un usuario registrado en la base de datos.",
+                  "mitigation": "Hasheo de contraseñas salteadas\nAplicar políticas de contraseñas seguras\nNo almacenar credenciales en texto plano",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "2"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -1516,6 +1534,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -1599,7 +1618,6 @@
               ]
             },
             "id": "ee6a1236-4d18-4f3d-aae8-5bb3d07804e8",
-            "zIndex": 3,
             "data": {
               "type": "tm.Process",
               "name": "Proceso \nde login",
@@ -1629,16 +1647,19 @@
                 "text": "Base de datos"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -1722,7 +1743,6 @@
               ]
             },
             "id": "14a0f0f6-611b-482e-9d60-196f71fdc303",
-            "zIndex": 4,
             "data": {
               "type": "tm.Store",
               "name": "Base de datos",
@@ -1730,13 +1750,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "0de57486-b94c-4047-8728-a5298a070d5f",
+                  "title": "Inyección SQL",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Un usuario malicioso registra, modifica, elimina o visualiza la información registrada en las diferentes tablas de la base de datos. ",
+                  "mitigation": "Limpiar campos y validar entradas desde la interfaz gráfica de usuario, desde el backend o desde ambos, para prevenir inyección SQL",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1753,16 +1793,19 @@
                 "text": "Páginas web \nen disco"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -1846,7 +1889,6 @@
               ]
             },
             "id": "269acf00-7d9f-41cf-ae7a-cb09e3383e3d",
-            "zIndex": 5,
             "data": {
               "type": "tm.Store",
               "name": "Páginas web \nen disco",
@@ -1854,20 +1896,41 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "2902c312-6275-4cd8-8050-69d1d0f6d388",
+                  "title": "Modificación de páginas web en disco",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Un usuario malicioso consigue acceso al sistema de archivos donde se encuentran almacenadas las páginas web con el fin de alterar las páginas, con el fin de insertar vulnerabilidades e inspeccionar el código fuente.",
+                  "mitigation": "Mantener y utilizar de forma correcta los privilegios de usuarios.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "6"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1888,12 +1951,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "8df1ba97-fec6-4eeb-9af6-e6f5eb2f22aa",
+                  "title": "Intercepción de solicitudes ",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Las solicitudes HTTP son interceptadas y son escuchadas por alguien que no tiene el permiso de saber de ellas, es decir, sufrir un Man in the middle",
+                  "mitigation": "Uso de protocolo HTTPS\nUso de cifrado extremo a extremo",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "6"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 3,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Web request"
@@ -1915,6 +1997,10 @@
               {
                 "x": 430,
                 "y": 230
+              },
+              {
+                "x": 530,
+                "y": 270
               }
             ]
           },
@@ -1922,7 +2008,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1943,12 +2030,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9bf5bf17-f411-4ecb-80c5-4387ea9a211c",
+                  "title": "Intercepción de respuestas HTTP",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Un Man in the middle intercepta las respuestas HTTP que son emitidas por el servidor hacia los usuarios.",
+                  "mitigation": "Uso de protocolo HTTPS\nUso de cifrado extremo a extremo",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "6"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Web response"
@@ -2312,6 +2418,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 0
+    "threatTop": 5
   }
 }
