@@ -3,7 +3,7 @@
   "summary": {
     "title": "Sitio web de la biblioteca universitaria",
     "owner": "Christopher Vasquez Zapata",
-    "description": "El sitio web de la biblioteca universitaria es la primera implementación de un sitio web para brindar servicios en línea a los bibliotecarios y usuarios de la biblioteca (estudiantes y personal universitario). Como es la primera implementación del sitio web, la funcionalidad será limitada a tres usuarios de la aplicación:\n1.- Estudiantes\n2.- Personal\n3.- Bibliotecarios",
+    "description": "El sitio web de la biblioteca universitaria es la primera implementación de un sitio web para brindar servicios en línea a los bibliotecarios y usuarios de la biblioteca (estudiantes y personal universitario). Como es la primera implementación del sitio web, la funcionalidad será limitada a tres usuarios de la aplicación:\n1.- Estudiantes\n2.- Personal\n3.- Bibliotecarios\nEl personal y los estudiantes podrán iniciar sesión, buscar libros y los miembros del personal podrán solicitar libros. Los bibliotecarios podrá iniciar sesión, agregar libros, agregar usuarios y buscar libros.",
     "id": 0
   },
   "detail": {
@@ -20,7 +20,7 @@
         "description": "Diagrama de flujo de datos para el sistema bibliotecario de la universidad"
       }
     ],
-    "diagramTop": 1,
+    "diagramTop": 2,
     "reviewer": "Guillermo Humberto Vera Amaro",
     "threatTop": 0
   }
